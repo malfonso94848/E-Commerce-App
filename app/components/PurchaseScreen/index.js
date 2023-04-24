@@ -1,20 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, SafeAreaView, FlatList } from "react-native";
 import { Button } from "@rneui/base";
 import { Header as HeaderRNE, HeaderProps, Card } from "@rneui/themed";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { CardTitle } from "@rneui/base/dist/Card/Card.Title";
+import { faShoppingCart, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const PurchaseScreen = ({ route, navigation }) => {
   let { purchaseArr, styles } = route.params;
 
-  let renderItem = ({ item }) => {
+  const [checkoutList, setCheckoutList] = useState([]);
+  const [checkoutTotalCount, setCheckoutTotalCount] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
+
+  const addItem = (item) => {
+    setCheckoutList([...checkoutList, item]);
+  };
+
+  useEffect(() => {
+    setCheckoutTotalCount(checkoutList.length);
+    setTotalCost(
+      checkoutList.reduce(function (acc, obj) {
+        return acc + obj.price;
+      }, 0)
+    );
+  }, [checkoutList]);
+
+  const renderItem = ({ item }) => {
     return (
-      <Card>
-        <CardTitle>{item.name}</CardTitle>
+      <Card containerStyle={styles.cardStyled}>
+        <Card.Title>{item.name}</Card.Title>
+        <Card.Divider />
+        <SafeAreaView style={styles.cardBody}>
+          {item.price}
+          <TouchableOpacity onPress={() => addItem(item)}>
+            <FontAwesomeIcon icon={faPlus} style={styles.cardIcon} />
+          </TouchableOpacity>
+        </SafeAreaView>
       </Card>
     );
   };
@@ -27,6 +50,8 @@ const PurchaseScreen = ({ route, navigation }) => {
             <TouchableOpacity
               onPress={() =>
                 navigation.navigate("Checkout Screen", {
+                  checkoutList: checkoutList,
+                  totalCost: totalCost,
                   styles: styles,
                 })
               }
@@ -35,12 +60,15 @@ const PurchaseScreen = ({ route, navigation }) => {
                 icon={faShoppingCart}
                 style={styles.headerIcon}
               />
+              <span style={styles.countSpan}>{checkoutTotalCount}</span>
             </TouchableOpacity>
           </View>
         }
         centerComponent={{ text: "Header", style: styles.heading }}
       />
-      <SafeAreaView></SafeAreaView>
+      <SafeAreaView style={{ flex: 1, width: "100%" }}>
+        <FlatList renderItem={renderItem} data={purchaseArr} numColumns={2} />
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 };

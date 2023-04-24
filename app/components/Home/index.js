@@ -10,6 +10,14 @@ const Home = ({ navigation }) => {
       alignItems: "center",
       justifyContent: "center",
     },
+    cardStyled: {
+      width: "45%",
+    },
+    cardBody: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
     button: {
       padding: "5px",
       margin: "5px",
@@ -42,14 +50,34 @@ const Home = ({ navigation }) => {
       fontSize: 16,
       margin: 5,
     },
+    cardIcon: {
+      color: "#2089dc",
+      fontSize: 16,
+    },
+    countSpan: {
+      backgroundColor: "white",
+      color: "#2089dc",
+      display: "flex",
+      borderRadius: "50%",
+      height: "12px",
+      width: "12px",
+      fontSize: "10px",
+      justifyContent: "center",
+      alignItems: "center",
+      position: "absolute",
+      right: "-7px",
+      top: "-4px",
+    },
   });
 
   const itemsData = [
     {
+      id: 1,
       name: "PS5 Console",
       price: 499.99,
     },
     {
+      id: 2,
       name: "Series X Console",
       price: 399.99,
     },
