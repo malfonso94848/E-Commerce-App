@@ -81,6 +81,16 @@ const Home = ({ navigation }) => {
       name: "Series X Console",
       price: 399.99,
     },
+    {
+      id: 3,
+      name: "Nintendo Switch",
+      price: 299.99,
+    },
+    {
+      id: 4,
+      name: "Steam Deck (256 GB)",
+      price: 529.99,
+    },
   ];
 
   return (

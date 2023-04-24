@@ -13,6 +13,7 @@ const PurchaseScreen = ({ route, navigation }) => {
   const [checkoutList, setCheckoutList] = useState([]);
   const [checkoutTotalCount, setCheckoutTotalCount] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
+  const [newSaleItem, setNewSaleItem] = useState([]);
 
   const addItem = (item) => {
     setCheckoutList([...checkoutList, item]);
