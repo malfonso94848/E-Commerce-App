@@ -16,7 +16,10 @@ const PurchaseScreen = ({ route, navigation }) => {
   const [newSaleItem, setNewSaleItem] = useState([]);
 
   const addItem = (item) => {
-    setCheckoutList([...checkoutList, item]);
+    setCheckoutList([
+      ...checkoutList,
+      { id: checkoutList.length + 1, name: item.name, price: item.price },
+    ]);
   };
 
   useEffect(() => {
@@ -52,7 +55,7 @@ const PurchaseScreen = ({ route, navigation }) => {
               onPress={() =>
                 navigation.navigate("Checkout Screen", {
                   checkoutList: checkoutList,
-                  totalCost: totalCost,
+                  totalCost: totalCost.toFixed(2),
                   styles: styles,
                 })
               }

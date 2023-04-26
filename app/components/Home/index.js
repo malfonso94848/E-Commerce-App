@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet, SafeAreaView } from "react-native";
 import { Button } from "@rneui/themed";
 
@@ -50,6 +50,17 @@ const Home = ({ navigation }) => {
       fontSize: 16,
       margin: 5,
     },
+    footer: {
+      height: 40,
+      width: "100%",
+      position: "fixed",
+      bottom: 0,
+      backgroundColor: "#2089dc",
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-end",
+    },
     cardIcon: {
       color: "#2089dc",
       fontSize: 16,
@@ -67,6 +78,9 @@ const Home = ({ navigation }) => {
       position: "absolute",
       right: "-7px",
       top: "-4px",
+    },
+    inputStyle: {
+      margin: "10px",
     },
   });
 
@@ -93,6 +107,8 @@ const Home = ({ navigation }) => {
     },
   ];
 
+  const [shoppinList, setShoppingList] = useState(itemsData);
+
   return (
     <SafeAreaView style={styles.container}>
       <div
@@ -106,7 +122,7 @@ const Home = ({ navigation }) => {
           style={styles.button}
           onPress={() =>
             navigation.navigate("Purchase Screen", {
-              purchaseArr: itemsData,
+              purchaseArr: shoppinList,
               styles: styles,
             })
           }
@@ -118,7 +134,8 @@ const Home = ({ navigation }) => {
           style={styles.button}
           onPress={() =>
             navigation.navigate("Sell Screen", {
-              purchaseArr: itemsData,
+              purchaseArr: shoppinList,
+              setShoppingList: setShoppingList,
               styles: styles,
             })
           }

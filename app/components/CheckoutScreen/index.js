@@ -22,7 +22,11 @@ const CheckoutScreen = ({ route }) => {
         <FlatList renderItem={renderItem} data={checkoutList} numColumns={2} />
       </SafeAreaView>
       <SafeAreaView>
-        <div>Your Total is: ${totalCost}</div>
+        <div style={styles.footer}>
+          <span style={{ marginRight: 10 }}>
+            Your Total is: ${parseFloat(totalCost)}
+          </span>
+        </div>
       </SafeAreaView>
     </SafeAreaProvider>
   );
