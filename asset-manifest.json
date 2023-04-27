@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/e-commerce-app/static/js/main.df3f4d8a.js",
+    "static/js/822.24adfd96.js": "/e-commerce-app/static/js/822.24adfd96.js",
+    "static/media/FontAwesome.ttf": "/e-commerce-app/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
+    "favicon.ico": "/e-commerce-app/favicon.ico",
+    "index.html": "/e-commerce-app/index.html",
+    "static/media/rocket.png": "/e-commerce-app/static/media/rocket.d2f3bf41d5e4515c39a9.png",
+    "static/media/bell.png": "/e-commerce-app/static/media/bell.cf04af27d6a651c4b904.png",
+    "favicon-32.png": "/e-commerce-app/favicon-32.png",
+    "static/media/star.png": "/e-commerce-app/static/media/star.69c7138684828d68fe5a.png",
+    "static/media/heart.png": "/e-commerce-app/static/media/heart.23b5c2c0eb77d50ff1b4.png",
+    "favicon-16.png": "/e-commerce-app/favicon-16.png",
+    "serve.json": "/e-commerce-app/serve.json",
+    "manifest.json": "/e-commerce-app/manifest.json",
+    "main.df3f4d8a.js.map": "/e-commerce-app/static/js/main.df3f4d8a.js.map",
+    "822.24adfd96.js.map": "/e-commerce-app/static/js/822.24adfd96.js.map"
+  },
+  "entrypoints": [
+    "static/js/822.24adfd96.js",
+    "static/js/main.df3f4d8a.js"
+  ]
+}
